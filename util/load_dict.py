@@ -8,10 +8,10 @@ class EntityManager(object):
     def find(self, word):
         for e in self.entity_list:
             if word in e.dict:
-                return (word, e.dict[word], e.name)
-        return (word, None, None)
+                return (e.dict[word], [e.name])
+        return (word, [])
 
-    def _get_entity_name_list(self, list_file_name) 
+    def _get_entity_name_list(self, list_file_name): 
         _list = []
         with open(list_file_name) as fr:
             for line in fr:
@@ -31,7 +31,7 @@ class EntityManager(object):
 class EntityDict(object):
     def __init__(self, file_name, name=None):
         self.name = name 
-        self.dict = _loadfile(file_name)
+        self.dict = self._loadfile(file_name)
         self._get_name(file_name)
         pass
 
@@ -39,7 +39,7 @@ class EntityDict(object):
         if self.name:
             return self.name
         else:
-            sps = file_nam.split("/") 
+            sps = file_name.split("/") 
             self.name = sps[-1]
         return self.name
         

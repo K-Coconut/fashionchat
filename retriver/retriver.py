@@ -1,8 +1,8 @@
 #coding=utf-8
 
-class Matcher(object):
+class Retriver(object):
     def __init__(self, config)
         pass
     
-    def simComp(self, querys)  
+    def call(self, querys, nlu_parse_results)  
         pass
