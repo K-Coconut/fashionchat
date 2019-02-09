@@ -1,15 +1,15 @@
 #coding=utf-8
 
 class Reranker(object):
-    def __init__(self, config)
+    def __init__(self, config):
         pass
     
-    def rerank(self, query,q_nlu_parse_result,  candidates, nlu_parse_results)  
+    def rerank(self, query,candidates, args):  
         pass
 
 class DefaultReranker(Reranker):
-    def __init__(self, config)
+    def __init__(self, config):
         pass
     
-    def rerank(self, query, q_nlu_parse_result,  candidates, nlu_parse_results)  
+    def rerank(self, query, candidates, args):  
         return candidates

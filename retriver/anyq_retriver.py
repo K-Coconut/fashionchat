@@ -12,14 +12,14 @@ class AnyqRetriver(Retriver):
           
 
     def _parse_result(self, res_text): 
-        json_data = json.load(res_text)
-        #[{"query" :score}]
-        return json_data
+        json_data = json.loads(res_text)
+        json_dict = {}
+        for j in json_data:
+            json_dict[j["question"]] = {}    
+            json_dict[j["question"]]["score"] = j["confidence"]
+        return json_dict 
 
 
-    def call(self, querys, nlu_parse_results)  
-        results = {}
-        for q in querys:
-            res = requests.get(url, {"query": q})
-            results[q] = self._parse_result(res.text)
-        return results
+    def call(self, query):  
+        res = requests.get(url, {"question": query})
+        return self._parse_result(res.text)
