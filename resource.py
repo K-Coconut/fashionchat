@@ -2,7 +2,7 @@
 import jieba
 import util.load_dict 
 from util import config
-root_path = "/Users/liudi/code/fashion_chat/configs"
+root_path = "/data/search/fashionchat/configs/"
 config_args_dict = {"{config_root_path}": root_path}
 
 sys_config = config.loadconfig("{config_root_path}/sys.conf", config_args_dict)

@@ -1,5 +1,10 @@
-/Users/liudi/code/fashion_chat/configs/dict/entity/seller
-/Users/liudi/code/fashion_chat/configs/dict/entity/series
-/Users/liudi/code/fashion_chat/configs/dict/entity/child_brand
-/Users/liudi/code/fashion_chat/configs/dict/entity/brand
-/Users/liudi/code/fashion_chat/configs/dict/entity/shoe
+/data/search/fashionchat/configs/dict/entity/OfficialOnline
+/data/search/fashionchat/configs/dict/entity/UnofficialOffline
+/data/search/fashionchat/configs/dict/entity/country
+/data/search/fashionchat/configs/dict/entity/UnofficialOnline
+/data/search/fashionchat/configs/dict/entity/Brand
+/data/search/fashionchat/configs/dict/entity/city
+/data/search/fashionchat/configs/dict/entity/ShoeDict
+/data/search/fashionchat/configs/dict/entity/Series
+/data/search/fashionchat/configs/dict/entity/Branch
+/data/search/fashionchat/configs/dict/entity/OfficialOffline

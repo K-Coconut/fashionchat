@@ -17,6 +17,7 @@ g_tree = tree.Tree(tree_config)
 g_retriver_m = RetriverManager(retriver_config)
 g_reranker_m = RerankManager(rerank_config)
 g_sp = SlotParser()
+print g_sp
 
 def get_tree_cache(query):
     #tree cache 
@@ -28,8 +29,9 @@ def get_retriver_node(query):
     nlu_result = g_ltool.cut(query)
     candidates = g_retriver_m.retrive(query) 
     args = {"tree": g_tree}
-    args = {"sp": g_sp}
-    candidates = g_retriver_m.rerank(query, candidates, args)
+    args["sp"] = g_sp
+    args["nlu_result"] = nlu_result
+    candidates = g_reranker_m.rerank(query, candidates, args)
     return g_tree.get_final_node(candidates)
 
 def get_slot(node, query):
@@ -50,13 +52,15 @@ def infer(query):
     return None, None
 
 if __name__ == "__main__":
-    while(true):
-        query = raw_input("query") 
+    while(True):
+        query = raw_input("query:\n") 
         slot_dict, node = infer(query)
         print "============"
         print "node" 
-        print node
+        if node is None:
+            continue
+        print node.encode("utf-8")
         for key in slot_dict: 
-            print key, slot_dict[key]
+            print key.encode("utf-8"), slot_dict[key].encode("utf-8")
         
         

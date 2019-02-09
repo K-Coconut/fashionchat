@@ -1,18 +1,23 @@
 #coding=utf-8
+from .reranker import Reranker
 
 
 class TreeReranker(Reranker):
-    def __init__(self, config)
+    def __init__(self, config):
         pass
     
     def rerank(self, query, candidates, args):
         tree = args["tree"]
         slot_parse = args["sp"]
+        nlu_result = args["nlu_result"]
         slot_dict = slot_parse.parse(query, nlu_result)
         q_slot_list = set(slot_dict.keys())
         result = {}
         for candi in candidates:    
-            node = tree.get_node(query)
+            node = tree.get_node(candi)
+            print node.encode("utf-8")
+            print candi.encode("utf-8")
+            print candidates[candi]["score"]
             sp_node = node.split("/")
             node_list = []
             for _l in range(len(sp_node)): 
@@ -23,6 +28,6 @@ class TreeReranker(Reranker):
 
             if len(node_list) > 0:
                 result[candi] = {}
-                result[candi]["score"] = candidates["candi"]["score"]
+                result[candi]["score"] = candidates[candi]["score"]
                 result[candi]["node"] = node_list 
         return result

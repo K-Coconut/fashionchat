@@ -1,12 +1,12 @@
 #coding=utf-8
-form .tree_reranker import TreeReranker
+from .tree_reranker import TreeReranker
 class RerankManager(object):
     def __init__(self, config):
         self.reranker = None 
-        if ["_config_tree_reranker"] in config:
+        if "_config_tree_reranker" in config:
             self.reranker = TreeReranker(None)
         else:
-            import .reranker.DefaultReranker as DefaultReranker
+            from .reranker import DefaultReranker
             self.reranker = DefaultReranker(None)
     
     def rerank(self, query, candidates, args): 

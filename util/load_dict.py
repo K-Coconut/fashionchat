@@ -47,7 +47,7 @@ class EntityDict(object):
         _dict = {}
         with open(file_name) as fr:
             for line in fr:
-                sps = line.decode("utf-8").strip().split("\t")
+                sps = line.decode("utf-8").strip().replace(" ", "").lower().split("\t")
                 _dict[sps[0]] = sps[0]
                 for _i in sps[1:]:
                     _dict[_i] = sps[0]

@@ -11,8 +11,8 @@ class LTool(object):
 
     def get_query_slot(self, cut_list):
         slot_dict = {}
-        for word, norm_word, slot_list in ut_list:
-            for slot_name in cut_list:
+        for word, norm_word, slot_list in cut_list:
+            for slot_name in slot_list:
                 slot_dict[slot_name] = norm_word
         return slot_dict
 

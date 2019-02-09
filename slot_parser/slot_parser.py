@@ -1,6 +1,6 @@
 #coding=utf-8
 
-def SlotParser(object):
+class SlotParser(object):
     def __init__(self):
         pass
      
