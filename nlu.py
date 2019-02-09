@@ -50,4 +50,13 @@ def infer(query):
     return None, None
 
 if __name__ == "__main__":
-    
+    while(true):
+        query = raw_input("query") 
+        slot_dict, node = infer(query)
+        print "============"
+        print "node" 
+        print node
+        for key in slot_dict: 
+            print key, slot_dict[key]
+        
+        
