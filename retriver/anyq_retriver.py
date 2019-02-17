@@ -22,4 +22,6 @@ class AnyqRetriver(Retriver):
     def call(self, query):  
         self.url = self.url_tmp % (self.hostname, self.port, query)
         res = requests.get(self.url)
+        #return result
+        #{“我要去买耐克”:{“score”:0.8}, “我想去买耐克”:{score:”0.8”}}
         return self._parse_result(res.text)

@@ -6,6 +6,7 @@ class LTool(object):
         pass
             
     def get_norm_query(self, cut_list):
+        #to-do:按字典名获取norm query
         return "".join(_i[1] for _i in cut_list)
 
 
@@ -16,6 +17,11 @@ class LTool(object):
                 slot_dict[slot_name] = norm_word
         return slot_dict
 
+    #def __cut(self, query):
+    #    cutter = resource.jieba 
+    #    cut_list = cutter.cut(query.strip())
+    #    #合并分词结果(取最长合并)
+        
 
     def cut(self, query):        
         cutter = resource.jieba 
