@@ -1,6 +1,7 @@
 #coding=utf-8
 import util.config as cf
 
+# 召回管理,可拓展多个召回系统,替换别的框架
 class RetriverManager(object):
 
     def __init__(self, config):
@@ -12,5 +13,4 @@ class RetriverManager(object):
     def retrive(self, query):
         if not self.retriver:
             return {}
-        return self.retriver.call(query) 
-
+        return self.retriver.call(query)

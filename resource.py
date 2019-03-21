@@ -17,11 +17,3 @@ retriver_config = config.loadconfig(sys_config["_conf_retriver_file"], config_ar
 jieba.load_userdict(sys_config["_conf_cut_dict"])
 
 em=util.load_dict.EntityManager(sys_config["_conf_entity_list"])
-
-
-
-
-
-
-
-

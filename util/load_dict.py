@@ -3,6 +3,7 @@
 class EntityManager(object):
     def __init__(self, list_file_name):
         self.entity_list = self._get_all_entity(list_file_name)
+        print 'self.entity_list:',self.entity_list
         
 
     def find(self, word):
@@ -17,6 +18,7 @@ class EntityManager(object):
             for line in fr:
                 line = line.decode("utf-8").strip()
                 _list.append(line)
+        print '_list:',_list
         return _list
 
     def _get_all_entity(self, list_file_name):
@@ -45,6 +47,7 @@ class EntityDict(object):
         
     def _loadfile(self, file_name):
         _dict = {}
+        file_name = file_name.replace('/data/search/','F:\python_project\\')
         with open(file_name) as fr:
             for line in fr:
                 sps = line.decode("utf-8").strip().replace(" ", "").lower().split("\t")
@@ -52,3 +55,6 @@ class EntityDict(object):
                 for _i in sps[1:]:
                     _dict[_i] = sps[0]
         return _dict
+
+if __name__ == '__main__':
+    t = EntityManager(r'F:\python_project\fashionchat\configs/dict/entity_list')

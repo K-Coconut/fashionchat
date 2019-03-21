@@ -1,4 +1,8 @@
 #coding=utf-8
+import json
+
+import resource
+
 
 class QueryFilter(object):
     def __init__(self, config):
@@ -28,3 +32,12 @@ class QueryFilter(object):
         if query in __dict:
             return __dict[query]
         return None
+
+if __name__ == '__main__':
+    tree_config = resource.tree_config
+    t=QueryFilter(tree_config)
+    print json.dumps(t.get(),ensure_ascii=False,encoding='utf-8')
+    while True:
+        query = raw_input('问题:')
+        query = query.decode('utf-8')
+        print t.hit(query)

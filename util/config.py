@@ -15,7 +15,11 @@ def loadconfig(config_file, replace_dict=None):
         file_content = fr.read()
     if file_content:
         _t = {}
-        exec(file_content, _t) 
+
+        # exec 函数为执行文本内容,_t['..']=.. ; _t包含系统变量__builtins__
+        exec(file_content, _t)
+
+        # 只有前缀为_conf的配置有效
         prefix = "_conf"
         if "prefix" in _t:
             prefix = _t["prefix"]
